@@ -1,0 +1,15 @@
+{
+    "name": "turtuga.material-dark",
+    "title": "Material Dark",
+    "description": "Material dark inspired by Mattia Astorino's SublimeText theme for brackets",
+    "homepage": "https://github.com/turtuga/material-dark-brackets",
+    "version": "1.0.0",
+    "author": "Ricardo Soares <rsoares@outlook.com> (http://ricardosoares.pt)",
+    "license": "MIT",
+    "theme": {
+        "file": "main.less",
+        "dark": true,
+        "addModeClass": true
+    },
+    "keywords": ["theme, material, dark"]
+}

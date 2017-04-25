@@ -1,0 +1,262 @@
+/*
+ * Brackets Default Theme
+ *
+ * Defines all the variables that one can configure in a theme. This should
+ * contain all variables / mixins for UI styling that we want to be able to
+ * change in a theme.
+ *
+ * Throughout the rest of the LESS files we should _only_ use color
+ * variable names that are on the LHS of the list below. So, if we
+ * need a new color for some UI element, we should add a variable
+ * in this file.
+ */
+
+/* Define some variables used in multiple places */
+@background: #212121;
+@foreground: #ddd;
+
+/* Code Styling */
+.CodeMirror, .CodeMirror-scroll {
+    background-color: @background;
+    color: @foreground;
+}
+
+.CodeMirror-focused .CodeMirror-activeline-background {
+    background: #151515;
+}
+
+.show-line-padding .CodeMirror-focused .CodeMirror-activeline-background {
+    box-shadow: inset 15px 0 0 0 #000;
+}
+
+.CodeMirror-focused .CodeMirror-activeline {
+    .CodeMirror-gutter-elt {
+        background: rgba(0, 0, 0, 0.2);
+        color: #fff;
+    }
+    .inline-widget .CodeMirror-gutter-elt {
+        color: #767676;
+    }
+}
+
+.cm-atom, .cm-string, .cm-string-2, .cm-hr {color: #d89333;}
+.cm-number, .cm-attribute, .cm-plus {color: #85a300;}
+.cm-def, .cm-property {color: #b77fdb;}
+.cm-variable, .cm-variable-2, .cm-variable-3, .cm-operator, .cm-meta, .cm-bracket {color: @foreground;}
+.cm-comment {color: #818a8e !important;}
+.cm-minus {color: #dc322f;}
+.cm-header {color: #d85896;}
+.cm-link {color: #b77fdb; text-decoration: none;}
+.cm-rangeinfo {color: #6c71c4;}
+.cm-keyword, .cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {color: #6c9ef8;}
+.cm-error {color: #dc322f;}
+
+/* Extra CSS */
+
+.CodeMirror-searching {
+    background-color: #d3cd69;
+    border: 1px solid #212121;
+    &.searching-current-match {
+        background-color: #d3cd69;
+        border: 1px solid #212121;
+    }
+}
+
+.CodeMirror-cursor {
+    border-left: 1px solid #c5c8c6 !important;
+}
+
+.CodeMirror-gutters {
+    background-color: @background;
+    border-right: none;
+}
+
+.CodeMirror-linenumber {
+    color: #818a8e;
+}
+
+.CodeMirror .CodeMirror-selected {
+    background: #333f48;
+}
+
+.CodeMirror-focused .CodeMirror-selected {
+    background: #454444;
+}
+
+.CodeMirror-matchingtag {
+    background-color: #434242;
+}
+
+.CodeMirror-matchingbracket {
+    background-color: #434242;
+    color: #FFF !important;
+}
+
+.CodeMirror-overwrite .CodeMirror-cursor {
+    border-left: none !important;
+    border-bottom: 1px solid #fff;
+}
+
+/*
+    CodeMirror's use of descendant selectors for certain styling causes problems when editors are
+    nested because, for items in the inner editor, the left-hand clause in the selector will now
+    match either the actual containing CodeMirror instance *OR* the outer "host" CodeMirror instance.
+
+    TODO (issue #324): We'll still have problems if editors can be nested more than one level deep,
+    or if any other descendant-selector-driven CM styles can differ between inner & outer editors
+    (potential problem areas include line wrap and coloring theme: basically, anything in codemirror.css
+    that uses a descandant selector where the CSS class name to the left of the space is something
+    other than a vanilla .CodeMirror)
+ */
+.CodeMirror {
+    .CodeMirror {
+        background: transparent;
+    }
+
+    .CodeMirror .CodeMirror-gutters {
+        background: transparent;
+        border-right: none;
+    }
+
+    .CodeMirror .CodeMirror-activeline-background {
+        background: transparent;
+    }
+
+    .CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
+        background: transparent;
+        color: #767676;
+    }
+
+    .CodeMirror-focused .CodeMirror-activeline-background {
+        background: #3a4c55;
+    }
+
+    .CodeMirror-focused .CodeMirror-activeline {
+        .CodeMirror-gutter-elt {
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+    }
+}
+
+.CodeMirror-foldgutter-open:after {
+    color: #666;
+}
+.CodeMirror-foldgutter-folded:after {
+    color: #aaa;
+}
+
+.CodeMirror.over-gutter, .CodeMirror-activeline {
+    .CodeMirror-foldgutter-open:after {
+        color: #888;
+    }
+}
+
+.CodeMirror-foldmarker {
+    border-color: #000;
+    color: #ccc;
+    background-color: #444;
+}
+
+/* Non-editor styling */
+
+.image-view,
+.not-editor {
+    background-color: @background;
+}
+
+.view-pane .image-view {
+    color: @foreground;
+}
+
+/* CSS */
+.cm-m-css {
+    color: #FFF;
+}
+.cm-m-css.cm-property {
+    color: #4ac7c8;
+}
+.cm-m-css.cm-qualifier, .cm-m-css.cm-builtin {
+    color: #ffc14f;
+}
+.cm-m-css.cm-variable-2 {
+    color: #FFF;
+}
+.cm-m-css.cm-variable-3 {
+    color: #c786bd;
+}
+.cm-m-css.cm-atom, .cm-m-css.cm-number {
+    color: #f78c6a;
+}
+.cm-m-css.cm-keyword {
+    color: #bc92ce;
+}
+
+/* PHP */
+.cm-m-clike.cm-operator {
+    color: #89ddf3;
+}
+.cm-m-clike.cm-variable {
+    color: #FFF;
+}
+.cm-m-clike.cm-variable-2 {
+    color: #FFF;
+}
+.cm-m-clike.cm-keyword {
+    color: #76aaf8;
+}
+.cm-m-clike.cm-string {
+    color: #c3e88d;
+}
+.cm-m-clike.cm-atom {
+    color: #e37164;
+}
+.cm-m-clike.cm-number {
+    color: #d58c60;
+}
+.cm-m-clike.cm-meta {
+    color: #FFF;
+}
+
+/* XML */
+.cm-m-xml.cm-tag.cm-bracket {
+   color: #89d7e1;
+}
+.cm-m-xml.cm-tag {
+   color: #f07178;
+}
+.cm-m-xml.cm-attribute {
+   color: #ffcb6b;
+}
+.cm-m-xml {
+   color: #FFF;
+}
+.cm-m-xml.cm-string {
+   color: #c3e88d;
+}
+.cm-m-xml.cm-attribute {
+   color: #ffcb6b;
+}
+
+/* JavaScript */
+.cm-m-javascript {
+    color: #FFF;
+}
+.cm-m-javascript.cm-keyword {
+    color: #ffcb6b;
+}
+.cm-m-javascript.cm-def {
+    color: #82aaff;
+}
+.cm-m-javascript.cm-atom {
+    color: #FFF;
+}
+.cm-m-javascript.cm-property {
+    color: #c3e88d;
+}
+.cm-m-javascript.cm-operator {
+    color: #89ddf3;
+}
+.cm-m-javascript.cm-variable-2 {
+    color: #f78c6a;
+}
